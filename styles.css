@@ -8,6 +8,7 @@
   --current: #70472e;
   --analysis: #89523e;
   --science: #676148;
+  --sports: #4f654f;
   --display: "Newsreader", Georgia, "Times New Roman", serif;
   --utility: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
@@ -76,6 +77,9 @@ h1 {
   justify-content: flex-start;
   gap: clamp(13px, 1.9svh, 20px);
   padding: clamp(15px, 2.2svh, 21px) 24px max(12px, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .section {
@@ -89,6 +93,10 @@ h1 {
 
 .section--science {
   --section-color: var(--science);
+}
+
+.section--sports {
+  --section-color: var(--sports);
 }
 
 .section__heading {
