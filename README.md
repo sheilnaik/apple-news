@@ -1,7 +1,9 @@
-# The Daily Eight
+# Apple News launcher
 
-A compact, single-screen launcher for eight favorite publications in Apple News.
+A dependency-free, single-page launcher for nine Apple News publications.
 
-The page is intentionally dependency-free: open `index.html` directly, serve the
-folder as a static site, or publish it with GitHub Pages. On iPhone, each source
-link hands off to Apple News using its `apple.news` deep link.
+Sources are grouped into current news, analysis and explainers, and technology
+and science. The page uses direct `apple.news` links and is sized to keep every
+source visible on one iPhone screen without scrolling.
+
+Typography is provided by the Google Fonts families Newsreader and Source Sans 3.
