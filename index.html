@@ -7,8 +7,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Apple News" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="description" content="A personal launcher for favorite Apple News publications." />
     <title>Apple News</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +20,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
     <main class="page">
@@ -31,16 +36,16 @@
           </div>
           <nav class="source-list" aria-label="Current news sources">
             <a class="source" href="https://apple.news/T2HHIfjQSSi6bz2f8pJF2xw" aria-label="Open Reuters in Apple News">
-              <span class="source__name">Reuters</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">Reuters</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/Tjl8slcGYTmO6f0yHbivKJg" aria-label="Open Bloomberg in Apple News">
-              <span class="source__name">Bloomberg</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">Bloomberg</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/TLZKrjVHNQX6EU84bXaUU4w" aria-label="Open The Wall Street Journal in Apple News">
-              <span class="source__name">The Wall Street Journal</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">The Wall Street Journal</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/TA-H5PvUbSDem4E9vQwZtOw" aria-label="Open Semafor in Apple News">
-              <span class="source__name">Semafor</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">Semafor</span><span class="source__action">Open</span>
             </a>
           </nav>
         </section>
@@ -52,13 +57,13 @@
           </div>
           <nav class="source-list" aria-label="Analysis and explainer sources">
             <a class="source" href="https://apple.news/ThfiauYLtQIOfqyiHkempkw" aria-label="Open The Economist in Apple News">
-              <span class="source__name">The Economist</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">The Economist</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/TVgiacOhzRVuradhgG5lrNQ" aria-label="Open Bloomberg Businessweek in Apple News">
-              <span class="source__name">Bloomberg Businessweek</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">Bloomberg Businessweek</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/TYUKWUK5SQOWuBYTvuJkDGA" aria-label="Open Puck in Apple News">
-              <span class="source__name">Puck</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">Puck</span><span class="source__action">Open</span>
             </a>
           </nav>
         </section>
@@ -70,10 +75,10 @@
           </div>
           <nav class="source-list" aria-label="Technology and science sources">
             <a class="source" href="https://apple.news/TvhDsCM02Sz2u5ut0wrZFwA" aria-label="Open WIRED in Apple News">
-              <span class="source__name">WIRED</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">WIRED</span><span class="source__action">Open</span>
             </a>
             <a class="source" href="https://apple.news/T1igTlZ8xTAiyMs8q1JtDbw" aria-label="Open New Scientist in Apple News">
-              <span class="source__name">New Scientist</span><span class="source__action">Open <b aria-hidden="true">↗</b></span>
+              <span class="source__name">New Scientist</span><span class="source__action">Open</span>
             </a>
           </nav>
         </section>
