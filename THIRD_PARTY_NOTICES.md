@@ -45,3 +45,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Publication logos
+
+Publication logos and favicon artwork are the property of their respective
+owners. They are included solely to identify the linked publications. The marks
+were retrieved from each publication's official web presence, directly or via
+Google's favicon service:
+
+- Reuters: https://www.reuters.com/
+- Bloomberg and Bloomberg Businessweek: https://www.bloomberg.com/
+- The Wall Street Journal: https://www.wsj.com/
+- Semafor: https://www.semafor.com/
+- Central Jersey News: https://centraljersey.com/
+- The Economist: https://www.economist.com/
+- The Christian Science Monitor: https://www.csmonitor.com/
+- The Verge: https://www.theverge.com/
+- WIRED: https://www.wired.com/
+- TechCrunch: https://techcrunch.com/
+- MIT Technology Review: https://www.technologyreview.com/
+- New Scientist: https://www.newscientist.com/
+- 404 Media: https://www.404media.co/
+- The Athletic: https://www.theathletic.com/
+- Sportico: https://www.sportico.com/
