@@ -1,8 +1,8 @@
-const CACHE_NAME = "apple-news-shell-v8";
+const CACHE_NAME = "apple-news-shell-v6";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=8",
+  "./styles.css?v=6",
   "./app.js",
   "./manifest.webmanifest",
   "./logos/404-media.png",
