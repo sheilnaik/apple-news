@@ -1,14 +1,12 @@
 :root {
   color-scheme: light;
-  --sepia-paper: #f0e4cd;
-  --sepia-ink: #392d26;
-  --sepia-dark: #382a23;
-  --sepia-rule: #d7c9af;
-  --sepia-rule-strong: #ae9979;
-  --current: #70472e;
-  --analysis: #89523e;
-  --science: #676148;
-  --sports: #4f654f;
+  --news-red: #fd445f;
+  --news-red-deep: #c91e3c;
+  --news-red-soft: #fff0f2;
+  --paper: #ffffff;
+  --ink: #1d1d1f;
+  --rule: #d8d8dc;
+  --rule-strong: #a9a9af;
   --display: "Newsreader", Georgia, "Times New Roman", serif;
   --utility: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
@@ -25,8 +23,8 @@ body {
 
 body {
   overflow: hidden;
-  background: var(--sepia-dark);
-  color: var(--sepia-ink);
+  background: #ececf0;
+  color: var(--ink);
   font-family: var(--utility);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -40,7 +38,7 @@ body {
   min-height: 620px;
   margin: 0 auto;
   overflow: hidden;
-  background: var(--sepia-paper);
+  background: var(--paper);
 }
 
 .masthead {
@@ -49,9 +47,9 @@ body {
   min-height: 88px;
   align-items: flex-end;
   padding: max(17px, env(safe-area-inset-top)) 24px 13px;
-  border-bottom: 3px solid #b78a52;
-  background: var(--sepia-dark);
-  color: #fff9ee;
+  border-bottom: 3px solid var(--news-red-deep);
+  background: var(--news-red);
+  color: #ffffff;
 }
 
 @media (display-mode: standalone) {
@@ -83,20 +81,8 @@ h1 {
 }
 
 .section {
-  --section-color: var(--current);
+  --section-color: var(--news-red-deep);
   flex: 0 0 auto;
-}
-
-.section--analysis {
-  --section-color: var(--analysis);
-}
-
-.section--science {
-  --section-color: var(--science);
-}
-
-.section--sports {
-  --section-color: var(--sports);
 }
 
 .section__heading {
@@ -120,12 +106,12 @@ h1 {
 .section__heading span {
   height: 1px;
   flex: 1 1 auto;
-  background: #c7b89e;
+  background: rgba(253, 68, 95, 0.32);
 }
 
 .source-list {
-  border-top: 1px solid #bfae91;
-  border-bottom: 2px solid var(--sepia-rule-strong);
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 2px solid var(--rule-strong);
 }
 
 .source {
@@ -134,8 +120,8 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid var(--sepia-rule);
-  color: var(--sepia-ink);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
   text-decoration: none;
 }
 
@@ -176,7 +162,7 @@ h1 {
 }
 
 .source:active {
-  background: rgba(112, 71, 46, 0.08);
+  background: var(--news-red-soft);
 }
 
 .source:focus-visible {
