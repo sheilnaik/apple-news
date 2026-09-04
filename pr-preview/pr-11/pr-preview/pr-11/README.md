@@ -3,8 +3,8 @@
 A dependency-free, single-page launcher for favorite Apple News publications.
 
 Sources are grouped into current news, analysis and explainers, technology and
-science, and sports. Each publication is presented in a compact, two-column
-editorial index with a logo, and every entry uses a direct `apple.news` link.
+science, and sports. Each publication is presented in a compact two-column card
+grid with a logo, and every card uses a direct `apple.news` link.
 
 Typography is provided by the Google Fonts families Newsreader and Source Sans 3.
 
