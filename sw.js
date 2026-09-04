@@ -1,4 +1,4 @@
-const CACHE_NAME = "apple-news-shell-v10";
+const CACHE_NAME = "apple-news-shell-v11";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const APP_SHELL = [
   "./logos/central-jersey-news.png",
   "./logos/christian-science-monitor.png",
   "./logos/economist.png",
+  "./logos/fast-company.png",
   "./logos/mit-technology-review.png",
   "./logos/new-scientist.png",
   "./logos/reuters.png",

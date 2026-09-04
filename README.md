@@ -2,7 +2,7 @@
 
 A dependency-free, single-page launcher for favorite Apple News publications.
 
-Sources are grouped into current news, analysis and explainers, technology and
+Sources are grouped into current news, analysis and ideas, technology and
 science, and sports. Each publication is presented in a compact, two-column
 editorial index with a logo, and every entry uses a direct `apple.news` link.
 
