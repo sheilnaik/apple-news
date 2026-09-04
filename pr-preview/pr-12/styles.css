@@ -1,0 +1,238 @@
+:root {
+  color-scheme: light;
+  --news-red: #fd445f;
+  --news-red-deep: #c91e3c;
+  --news-red-soft: #fff0f2;
+  --paper: #ffffff;
+  --ink: #1d1d1f;
+  --rule: #d8d8dc;
+  --rule-strong: #a9a9af;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --utility: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #ececf0;
+  color: var(--ink);
+  font-family: var(--utility);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 520px);
+  height: 100svh;
+  min-height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.masthead {
+  display: flex;
+  flex: 0 0 auto;
+  min-height: 88px;
+  align-items: flex-end;
+  padding: max(17px, env(safe-area-inset-top)) 24px 13px;
+  border-bottom: 3px solid var(--news-red-deep);
+  background: var(--news-red);
+  color: #ffffff;
+}
+
+@media (display-mode: standalone) {
+  .masthead {
+    padding-top: calc(max(17px, env(safe-area-inset-top)) + 40px);
+  }
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(35px, 5.2svh, 42px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+.index {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(13px, 1.9svh, 20px);
+  padding: clamp(15px, 2.2svh, 21px) 20px max(12px, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section {
+  --section-color: var(--news-red-deep);
+  flex: 0 0 auto;
+}
+
+.section__heading {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.section__heading h2 {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--section-color);
+  font-size: clamp(10px, 1.35svh, 12px);
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section__heading span {
+  height: 1px;
+  flex: 1 1 auto;
+  background: rgba(253, 68, 95, 0.32);
+}
+
+.source-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 2px solid var(--rule-strong);
+  background: var(--rule);
+}
+
+.source {
+  display: flex;
+  min-width: 0;
+  min-height: clamp(56px, 6.8svh, 62px);
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.source:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.source__identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.source__logo {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #e4e4e8;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(29, 29, 31, 0.08);
+}
+
+.source__logo img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.source__name {
+  min-width: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  font-family: var(--display);
+  font-size: clamp(15px, 2svh, 17px);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.05;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.source:active {
+  background: var(--news-red-soft);
+}
+
+.source:focus-visible {
+  outline: 3px solid var(--section-color);
+  outline-offset: 3px;
+}
+
+@media (max-height: 720px) {
+  .masthead {
+    min-height: 72px;
+    padding-bottom: 10px;
+  }
+
+  .index {
+    gap: 9px;
+    padding-top: 10px;
+  }
+
+  .section__heading {
+    height: 20px;
+  }
+
+  .source {
+    min-height: 52px;
+    padding-block: 6px;
+  }
+
+  .source__logo {
+    width: 25px;
+    height: 25px;
+    flex-basis: 25px;
+  }
+
+  .source__logo img {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (max-width: 380px) {
+  .masthead {
+    padding-inline: 16px;
+  }
+
+  .index {
+    padding-inline: 14px;
+  }
+
+  .source-list {
+    gap: 1px;
+  }
+
+  .source {
+    padding-inline: 8px;
+  }
+
+  .source__name {
+    font-size: 15px;
+  }
+}
