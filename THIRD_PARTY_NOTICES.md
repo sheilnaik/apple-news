@@ -60,6 +60,7 @@ Google's favicon service:
 - Central Jersey News: https://centraljersey.com/
 - The Economist: https://www.economist.com/
 - The Christian Science Monitor: https://www.csmonitor.com/
+- Fast Company: https://www.fastcompany.com/
 - The Verge: https://www.theverge.com/
 - WIRED: https://www.wired.com/
 - TechCrunch: https://techcrunch.com/
