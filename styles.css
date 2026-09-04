@@ -112,8 +112,10 @@ h1 {
 .source-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
-  padding-top: 3px;
+  gap: 1px;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 2px solid var(--rule-strong);
+  background: var(--rule);
 }
 
 .source {
@@ -122,12 +124,13 @@ h1 {
   min-height: clamp(56px, 6.8svh, 62px);
   align-items: center;
   padding: 8px 10px;
-  border: 1px solid var(--rule);
-  border-radius: 11px;
   background: var(--paper);
   color: var(--ink);
   text-decoration: none;
-  box-shadow: 0 1px 3px rgba(29, 29, 31, 0.06);
+}
+
+.source:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .source__identity {
@@ -222,7 +225,7 @@ h1 {
   }
 
   .source-list {
-    gap: 8px;
+    gap: 1px;
   }
 
   .source {
