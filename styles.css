@@ -183,6 +183,149 @@ h1 {
   outline-offset: 3px;
 }
 
+/* Turn the compact phone launcher into a spacious editorial index on larger screens. */
+@media (min-width: 800px) {
+  body {
+    overflow: auto;
+  }
+
+  .page {
+    width: calc(100% - 64px);
+    max-width: 1440px;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    box-shadow: 0 0 48px rgba(29, 29, 31, 0.08);
+  }
+
+  .masthead {
+    min-height: 120px;
+    padding: 32px 42px 22px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: 38px 42px;
+    padding: 36px 42px 56px;
+    overflow: visible;
+  }
+
+  .section__heading {
+    height: 29px;
+    gap: 11px;
+  }
+
+  .section__heading h2 {
+    font-size: 13px;
+  }
+
+  .source-list {
+    grid-template-columns: 1fr;
+  }
+
+  .source {
+    min-height: 70px;
+    padding: 12px 14px;
+  }
+
+  .source__identity {
+    gap: 12px;
+  }
+
+  .source__logo {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    border-radius: 9px;
+  }
+
+  .source__logo img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .source__name {
+    font-size: 19px;
+    line-height: 1.1;
+  }
+
+  .source:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 1180px) {
+  .page {
+    width: calc(100% - 80px);
+    max-width: 1840px;
+  }
+
+  .masthead {
+    min-height: 132px;
+    padding-inline: 52px;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
+
+  .index {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 46px 52px;
+    padding: 42px 52px 68px;
+  }
+
+  .section--current,
+  .section--analysis {
+    grid-column: span 6;
+  }
+
+  .section--science {
+    grid-column: span 8;
+  }
+
+  .section--sports {
+    grid-column: span 4;
+  }
+
+  .section--current .source-list,
+  .section--analysis .source-list,
+  .section--science .source-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section--current .source:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .source {
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .source__logo {
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  .source:hover {
+    background: var(--news-red-soft);
+    color: var(--news-red-deep);
+  }
+
+  .source:hover .source__logo {
+    border-color: rgba(201, 30, 60, 0.24);
+    box-shadow: 0 2px 7px rgba(201, 30, 60, 0.13);
+    transform: translateY(-1px);
+  }
+}
+
 @media (max-height: 720px) {
   .masthead {
     min-height: 72px;
