@@ -300,6 +300,12 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .section--analysis .source-list:has(> .source:last-child:nth-child(odd))::after,
+  .section--science .source-list:has(> .source:last-child:nth-child(odd))::after {
+    content: "";
+    background: var(--paper);
+  }
+
   .section--current .source:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
