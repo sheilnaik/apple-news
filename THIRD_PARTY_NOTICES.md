@@ -62,6 +62,7 @@ Google's favicon service:
 - The Christian Science Monitor: https://www.csmonitor.com/
 - Fast Company: https://www.fastcompany.com/
 - The Verge: https://www.theverge.com/
+- Ars Technica: https://arstechnica.com/ (icon path from Simple Icons: https://github.com/simple-icons/simple-icons)
 - Daring Fireball: https://daringfireball.net/
 - WIRED: https://www.wired.com/
 - TechCrunch: https://techcrunch.com/
