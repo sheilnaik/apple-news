@@ -2,7 +2,8 @@
 
 ## Lucide
 
-The launcher uses Lucide's Newspaper and External Link glyphs:
+The launcher uses Lucide's Newspaper, External Link, Globe, Lightbulb, Atom, and
+Trophy glyphs:
 https://github.com/lucide-icons/lucide
 
 ISC License

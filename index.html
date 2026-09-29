@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#fd445f" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fde7ec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0612" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Apple News" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="description" content="A personal launcher for favorite Apple News publications." />
@@ -13,115 +15,192 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;family=Source+Sans+3:wght@600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=12" />
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=14" />
+    <script src="app.js?v=3" defer></script>
   </head>
   <body>
+    <div class="wallpaper" aria-hidden="true">
+      <span class="wallpaper__blob wallpaper__blob--1"></span>
+      <span class="wallpaper__blob wallpaper__blob--2"></span>
+      <span class="wallpaper__blob wallpaper__blob--3"></span>
+      <span class="wallpaper__blob wallpaper__blob--4"></span>
+    </div>
+
     <main class="page">
       <header class="masthead">
-        <h1>Apple News</h1>
+        <div class="masthead__bar">
+          <h1 class="masthead__brand">
+            <img src="icons/app-icon.svg" alt="" width="24" height="24" />
+            Apple News
+          </h1>
+          <p class="masthead__date" data-today></p>
+        </div>
+        <p class="masthead__edition" data-edition><em>Today&rsquo;s</em> Edition</p>
       </header>
 
-      <div class="index" aria-label="Apple News publications">
-        <section class="section section--current" aria-labelledby="current-news">
-          <div class="section__heading">
-            <h2 id="current-news">Current news</h2>
-            <span aria-hidden="true"></span>
+      <nav class="index" aria-label="Publications">
+        <section class="widget widget--red" aria-labelledby="current-news">
+          <div class="widget__header">
+            <span class="widget__glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </span>
+            <h2 class="widget__title" id="current-news">Current News</h2>
+            <span class="widget__count" aria-hidden="true" data-count></span>
           </div>
-          <nav class="source-list" aria-label="Current news sources">
-            <a class="source" href="https://apple.news/T2HHIfjQSSi6bz2f8pJF2xw" aria-label="Open Reuters in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/reuters.png" alt="" width="28" height="28" /></span><span class="source__name">Reuters</span></span>
-            </a>
-            <a class="source" href="https://apple.news/Tjl8slcGYTmO6f0yHbivKJg" aria-label="Open Bloomberg in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/bloomberg.png" alt="" width="28" height="28" /></span><span class="source__name">Bloomberg</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TLZKrjVHNQX6EU84bXaUU4w" aria-label="Open The Wall Street Journal in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/wall-street-journal.png" alt="" width="28" height="28" /></span><span class="source__name">The Wall Street Journal</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TA-H5PvUbSDem4E9vQwZtOw" aria-label="Open Semafor in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/semafor.png" alt="" width="28" height="28" /></span><span class="source__name">Semafor</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TNPfsRVpATbW1Sj1yWFdFFg" aria-label="Open Central Jersey News in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/central-jersey-news.png" alt="" width="28" height="28" /></span><span class="source__name">Central Jersey News</span></span>
-            </a>
-          </nav>
+          <ul class="tiles" role="list">
+            <li>
+              <a class="tile" href="https://apple.news/T2HHIfjQSSi6bz2f8pJF2xw" style="--brand: #fa6400">
+                <span class="tile__icon"><img src="logos/reuters.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Reuters</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/Tjl8slcGYTmO6f0yHbivKJg" style="--brand: #2800d7">
+                <span class="tile__icon"><img src="logos/bloomberg.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Bloomberg</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TLZKrjVHNQX6EU84bXaUU4w" style="--brand: #8a8f98">
+                <span class="tile__icon tile__icon--fill"><img src="logos/wall-street-journal.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">The Wall Street Journal</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TA-H5PvUbSDem4E9vQwZtOw" style="--brand: #d9c89e">
+                <span class="tile__icon tile__icon--fill"><img src="logos/semafor.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Semafor</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TNPfsRVpATbW1Sj1yWFdFFg" style="--brand: #e0a526">
+                <span class="tile__icon"><img src="logos/central-jersey-news.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Central Jersey News</span>
+              </a>
+            </li>
+          </ul>
         </section>
 
-        <section class="section section--analysis" aria-labelledby="analysis">
-          <div class="section__heading">
-            <h2 id="analysis">Analysis &amp; ideas</h2>
-            <span aria-hidden="true"></span>
+        <section class="widget widget--violet" aria-labelledby="analysis">
+          <div class="widget__header">
+            <span class="widget__glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+            </span>
+            <h2 class="widget__title" id="analysis">Analysis &amp; Ideas</h2>
+            <span class="widget__count" aria-hidden="true" data-count></span>
           </div>
-          <nav class="source-list" aria-label="Analysis and ideas sources">
-            <a class="source" href="https://apple.news/ThfiauYLtQlOfqyiHkempkw" aria-label="Open The Economist in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/economist.png" alt="" width="28" height="28" /></span><span class="source__name">The Economist</span></span>
-            </a>
-            <a class="source" href="https://apple.news/T_Ye2hwWaT_-u-DtJ17lVoQ" aria-label="Open The Christian Science Monitor in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/christian-science-monitor.png" alt="" width="28" height="28" /></span><span class="source__name">The Christian Science Monitor</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TVgiaC0hzRVuradhgG5IrNQ" aria-label="Open Bloomberg Businessweek in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/bloomberg-businessweek.png" alt="" width="28" height="28" /></span><span class="source__name">Bloomberg Businessweek</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TRDkR9QPbS0yoKyV5iQSW5g" aria-label="Open Fast Company in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/fast-company.png" alt="" width="28" height="28" /></span><span class="source__name">Fast Company</span></span>
-            </a>
-          </nav>
+          <ul class="tiles" role="list">
+            <li>
+              <a class="tile" href="https://apple.news/ThfiauYLtQlOfqyiHkempkw" style="--brand: #e3120b">
+                <span class="tile__icon tile__icon--fill"><img src="logos/economist.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">The Economist</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/T_Ye2hwWaT_-u-DtJ17lVoQ" style="--brand: #3b6ea5">
+                <span class="tile__icon tile__icon--fill"><img src="logos/christian-science-monitor.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">The Christian Science Monitor</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TVgiaC0hzRVuradhgG5IrNQ" style="--brand: #7b2bff">
+                <span class="tile__icon"><img src="logos/bloomberg-businessweek.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Bloomberg Businessweek</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TRDkR9QPbS0yoKyV5iQSW5g" style="--brand: #8a8f98">
+                <span class="tile__icon"><img src="logos/fast-company.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Fast Company</span>
+              </a>
+            </li>
+          </ul>
         </section>
 
-        <section class="section section--science" aria-labelledby="science">
-          <div class="section__heading">
-            <h2 id="science">Technology &amp; science</h2>
-            <span aria-hidden="true"></span>
+        <section class="widget widget--blue" aria-labelledby="science">
+          <div class="widget__header">
+            <span class="widget__glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg>
+            </span>
+            <h2 class="widget__title" id="science">Technology &amp; Science</h2>
+            <span class="widget__count" aria-hidden="true" data-count></span>
           </div>
-          <nav class="source-list" aria-label="Technology and science sources">
-            <a class="source" href="https://apple.news/TLhSckDOWQjqEVzLdN4FplQ" aria-label="Open The Verge in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/the-verge.png" alt="" width="28" height="28" /></span><span class="source__name">The Verge</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TUKgA_OjuTe20v1ndDwQjxQ" aria-label="Open Ars Technica in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/ars-technica.svg" alt="" width="28" height="28" /></span><span class="source__name">Ars Technica</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TMDi_OFIRSe2BQoupq1S1Gw" aria-label="Open Daring Fireball in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/daring-fireball.png" alt="" width="28" height="28" /></span><span class="source__name">Daring Fireball</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TvhDsCM02Sz2u5ut0wrZFwA" aria-label="Open WIRED in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/wired.png" alt="" width="28" height="28" /></span><span class="source__name">WIRED</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TaQFrBREMREafJLmlnwG_RA" aria-label="Open TechCrunch in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/techcrunch.png" alt="" width="28" height="28" /></span><span class="source__name">TechCrunch</span></span>
-            </a>
-            <a class="source" href="https://apple.news/T1kYkFSIVRBWBj0dJ29gJfw" aria-label="Open MIT Technology Review in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/mit-technology-review.png" alt="" width="28" height="28" /></span><span class="source__name">MIT Technology Review</span></span>
-            </a>
-            <a class="source" href="https://apple.news/T1igTlZ8xTAiyMs8q1JtDbw" aria-label="Open New Scientist in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/new-scientist.png" alt="" width="28" height="28" /></span><span class="source__name">New Scientist</span></span>
-            </a>
-            <a class="source" href="https://apple.news/T3wa8HAqFQDWGfcXrqdNGog" aria-label="Open 404 Media in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/404-media.png" alt="" width="28" height="28" /></span><span class="source__name">404 Media</span></span>
-            </a>
-          </nav>
+          <ul class="tiles" role="list">
+            <li>
+              <a class="tile" href="https://apple.news/TLhSckDOWQjqEVzLdN4FplQ" style="--brand: #5200ff">
+                <span class="tile__icon tile__icon--fill"><img src="logos/the-verge.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">The Verge</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TUKgA_OjuTe20v1ndDwQjxQ" style="--brand: #ff4e00">
+                <span class="tile__icon"><img src="logos/ars-technica.svg" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Ars Technica</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TMDi_OFIRSe2BQoupq1S1Gw" style="--brand: #7a8793">
+                <span class="tile__icon tile__icon--fill"><img src="logos/daring-fireball.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Daring Fireball</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TvhDsCM02Sz2u5ut0wrZFwA" style="--brand: #8a8f98">
+                <span class="tile__icon tile__icon--fill"><img src="logos/wired.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">WIRED</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TaQFrBREMREafJLmlnwG_RA" style="--brand: #0a9e01">
+                <span class="tile__icon tile__icon--fill"><img src="logos/techcrunch.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">TechCrunch</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/T1kYkFSIVRBWBj0dJ29gJfw" style="--brand: #9aa0a6">
+                <span class="tile__icon"><img src="logos/mit-technology-review.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">MIT Technology Review</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/T1igTlZ8xTAiyMs8q1JtDbw" style="--brand: #3452a4">
+                <span class="tile__icon tile__icon--fill"><img src="logos/new-scientist.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">New Scientist</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/T3wa8HAqFQDWGfcXrqdNGog" style="--brand: #8a8f98">
+                <span class="tile__icon"><img src="logos/404-media.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">404 Media</span>
+              </a>
+            </li>
+          </ul>
         </section>
 
-        <section class="section section--sports" aria-labelledby="sports">
-          <div class="section__heading">
-            <h2 id="sports">Sports</h2>
-            <span aria-hidden="true"></span>
+        <section class="widget widget--green" aria-labelledby="sports">
+          <div class="widget__header">
+            <span class="widget__glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            </span>
+            <h2 class="widget__title" id="sports">Sports</h2>
+            <span class="widget__count" aria-hidden="true" data-count></span>
           </div>
-          <nav class="source-list" aria-label="Sports sources">
-            <a class="source" href="https://apple.news/TGZrXYjEmTdOtVrhVEViDCA" aria-label="Open The Athletic in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/the-athletic.png" alt="" width="28" height="28" /></span><span class="source__name">The Athletic</span></span>
-            </a>
-            <a class="source" href="https://apple.news/TxdXHyhmxQZySoSBhMMt0eg" aria-label="Open Sportico in Apple News">
-              <span class="source__identity"><span class="source__logo"><img src="logos/sportico.png" alt="" width="28" height="28" /></span><span class="source__name">Sportico</span></span>
-            </a>
-          </nav>
+          <ul class="tiles" role="list">
+            <li>
+              <a class="tile" href="https://apple.news/TGZrXYjEmTdOtVrhVEViDCA" style="--brand: #8a8f98">
+                <span class="tile__icon tile__icon--fill"><img src="logos/the-athletic.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">The Athletic</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="https://apple.news/TxdXHyhmxQZySoSBhMMt0eg" style="--brand: #c8282d">
+                <span class="tile__icon"><img src="logos/sportico.png" alt="" width="36" height="36" /></span>
+                <span class="tile__name">Sportico</span>
+              </a>
+            </li>
+          </ul>
         </section>
-      </div>
+      </nav>
     </main>
   </body>
 </html>
