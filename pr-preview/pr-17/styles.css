@@ -1,0 +1,436 @@
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces follow the iOS grouped-content palette. */
+  --bg: #f2f2f7;
+  --card: #ffffff;
+  --card-pressed: #e5e5ea;
+  --bar: rgba(242, 242, 247, 0.78);
+  --label: #1d1d1f;
+  --label-secondary: #6c6c70;
+  --separator: rgba(60, 60, 67, 0.16);
+  --logo-ring: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  /* Accessible (increased-contrast) system tints: all at least 4.5:1 on --bg. */
+  --news-red: #d70015;
+  --tone-red: #d70015;
+  --tone-purple: #8944ab;
+  --tone-blue: #0040dd;
+  --tone-green: #1a7f37;
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+
+  --gutter: 16px;
+  --radius: 14px;
+  --gap: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --card: #1c1c1e;
+    --card-pressed: #2c2c2e;
+    --bar: rgba(22, 22, 23, 0.78);
+    --label: #f5f5f7;
+    --label-secondary: #aeaeb2;
+    --separator: rgba(84, 84, 88, 0.6);
+    --logo-ring: rgba(255, 255, 255, 0.1);
+    --card-shadow: none;
+    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+    --news-red: #ff6961;
+    --tone-red: #ff6961;
+    --tone-purple: #da8fff;
+    --tone-blue: #409cff;
+    --tone-green: #30db5b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100svh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--label);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Page ---------- */
+
+.page {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 0 max(var(--gutter), env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom))
+    max(var(--gutter), env(safe-area-inset-left));
+}
+
+/* ---------- Large-title masthead ---------- */
+
+.masthead {
+  padding: calc(env(safe-area-inset-top) + clamp(10px, 2svh, 28px)) 0 clamp(10px, 1.6svh, 20px);
+}
+
+.masthead__date {
+  min-height: 1.2em;
+  margin: 0 0 2px;
+  color: var(--news-red);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.masthead__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.6svh, 2.125rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.masthead__icon {
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 22.5%;
+}
+
+/* ---------- Compact bar that fades in once the large title scrolls away ---------- */
+
+.topbar {
+  position: fixed;
+  z-index: 10;
+  inset: 0 0 auto;
+  display: flex;
+  height: calc(44px + env(safe-area-inset-top));
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 11px;
+  border-bottom: 0.5px solid var(--separator);
+  background: var(--bar);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.topbar__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.topbar__title img {
+  border-radius: 22.5%;
+}
+
+.is-scrolled .topbar {
+  opacity: 1;
+}
+
+/* ---------- Sections ---------- */
+
+.index {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.2svh, 28px);
+}
+
+.section {
+  --tone: var(--tone-red);
+}
+
+.section--purple {
+  --tone: var(--tone-purple);
+}
+
+.section--blue {
+  --tone: var(--tone-blue);
+}
+
+.section--green {
+  --tone: var(--tone-green);
+}
+
+.section__title {
+  margin: 0 0 clamp(6px, 0.9svh, 10px) 2px;
+  color: var(--tone);
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 2.3svh, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Source cards ---------- */
+
+.source {
+  display: flex;
+  height: 100%;
+  min-height: clamp(48px, 6.1svh, 60px);
+  align-items: center;
+  gap: 9px;
+  padding: 6px 9px;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--card-shadow);
+  color: var(--label);
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms ease, box-shadow 200ms ease;
+}
+
+.source__logo {
+  position: relative;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 22.5%;
+  background: #ffffff;
+}
+
+/* Hairline ring keeps white logos defined on white cards and dark logos defined on dark cards. */
+.source__logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--logo-ring);
+  pointer-events: none;
+}
+
+.source__logo img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+/* Logos that are already a filled square read as app icons when edge-to-edge. */
+.source__logo.source__logo--fill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.source__name {
+  min-width: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.source:active {
+  background: var(--card-pressed);
+  transform: scale(0.97);
+}
+
+.source:focus-visible {
+  outline: 3px solid var(--tone);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .source:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .source:hover .source__name {
+    color: var(--tone);
+  }
+
+  .source:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ---------- Small and short phones ---------- */
+
+@media (max-width: 359px) {
+  :root {
+    --gutter: 12px;
+    --gap: 6px;
+  }
+
+  .source {
+    gap: 8px;
+    padding-inline: 8px;
+  }
+
+  .source__logo {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .source__logo img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .source__name {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ---------- Tablet and desktop ---------- */
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 28px;
+    --gap: 12px;
+    --radius: 16px;
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .source {
+    min-height: 68px;
+    gap: 14px;
+    padding: 12px 14px;
+  }
+
+  .source__logo {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .source__logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .source__name {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 40px;
+  }
+
+  .masthead {
+    padding-top: 48px;
+    padding-bottom: 28px;
+  }
+
+  .masthead__date {
+    font-size: 0.875rem;
+  }
+
+  .masthead__title {
+    font-size: 3rem;
+    gap: 14px;
+  }
+
+  .index {
+    gap: 36px;
+  }
+
+  .section__title {
+    margin-bottom: 14px;
+    font-size: 1.5rem;
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .source,
+  .topbar {
+    transition: none;
+  }
+
+  .source:active,
+  .source:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --separator: rgba(60, 60, 67, 0.5);
+    --logo-ring: rgba(0, 0, 0, 0.3);
+  }
+
+  .source {
+    box-shadow: inset 0 0 0 1px var(--separator);
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --separator: rgba(235, 235, 245, 0.45);
+    --logo-ring: rgba(255, 255, 255, 0.35);
+  }
+}
+
+@media (forced-colors: active) {
+  .source {
+    border: 1px solid CanvasText;
+  }
+
+  .source:focus-visible {
+    outline-color: Highlight;
+  }
+}
