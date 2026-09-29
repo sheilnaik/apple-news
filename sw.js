@@ -1,9 +1,12 @@
-const CACHE_NAME = "apple-news-shell-v15";
+const CACHE_NAME = "apple-news-shell-v18";
+// Google Fonts live in their own cache so they survive shell updates.
+const FONT_CACHE = "apple-news-fonts-v1";
+const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=12",
-  "./app.js",
+  "./styles.css?v=15",
+  "./app.js?v=4",
   "./manifest.webmanifest",
   "./logos/404-media.png",
   "./logos/ars-technica.svg",
@@ -40,7 +43,9 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      .then((keys) =>
+        Promise.all(keys.filter((key) => key !== CACHE_NAME && key !== FONT_CACHE).map((key) => caches.delete(key)))
+      )
       .then(() => self.clients.claim())
   );
 });
@@ -49,6 +54,24 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   const url = new URL(event.request.url);
+
+  if (FONT_ORIGINS.includes(url.origin)) {
+    // Cache-first: font files are immutable, and the stylesheet only changes when the URL does.
+    event.respondWith(
+      caches.open(FONT_CACHE).then((cache) =>
+        cache.match(event.request).then(
+          (cached) =>
+            cached ||
+            fetch(event.request).then((response) => {
+              if (response.ok || response.type === "opaque") cache.put(event.request, response.clone());
+              return response;
+            })
+        )
+      )
+    );
+    return;
+  }
+
   if (url.origin !== self.location.origin) return;
 
   if (event.request.mode === "navigate") {

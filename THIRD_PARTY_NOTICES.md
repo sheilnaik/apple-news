@@ -2,7 +2,7 @@
 
 ## Lucide
 
-The launcher uses Lucide's Newspaper and External Link glyphs:
+The launcher uses Lucide's Newspaper, External Link, and Arrow Up Right glyphs:
 https://github.com/lucide-icons/lucide
 
 ISC License
@@ -45,6 +45,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Fonts
+
+The launcher loads these typefaces from Google Fonts. All are licensed under the
+SIL Open Font License, Version 1.1 (https://openfontlicense.org):
+
+- Fraunces, by Undercase Type (Phaedra Charles and Flavia Zimbardi)
+- Instrument Sans, by Instrument
+- DM Mono, by Colophon Foundry for DeepMind
 
 ## Publication logos
 
