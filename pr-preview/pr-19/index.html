@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4eee3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#15120f" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Apple News" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="description" content="A personal launcher for favorite Apple News publications." />
+    <title>Apple News</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&amp;family=Instrument+Sans:wght@400..700&amp;display=swap" />
+    <link rel="stylesheet" href="styles.css?v=15" />
+    <script src="app.js?v=4" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="masthead">
+        <div class="masthead__meta">
+          <span data-volume>Personal Edition</span>
+          <span data-dateline></span>
+        </div>
+        <h1 class="masthead__nameplate"><em>The</em> Newsstand</h1>
+        <div class="masthead__rule" aria-hidden="true"></div>
+        <p class="masthead__tagline">
+          <span class="masthead__motto">Every title worth reading, one tap away.</span>
+          <span class="masthead__note">Opens in Apple&nbsp;News</span>
+        </p>
+      </header>
+
+      <nav class="index" aria-label="Publications">
+        <section class="desk desk--vermilion" aria-labelledby="current-news">
+          <div class="desk__head">
+            <h2 class="desk__title" id="current-news">Current News</h2>
+            <span class="desk__count" aria-hidden="true" data-count></span>
+            <span class="desk__numeral" aria-hidden="true">№&#8239;1</span>
+          </div>
+          <ul class="pubs" role="list">
+            <li>
+              <a class="pub" href="https://apple.news/T2HHIfjQSSi6bz2f8pJF2xw">
+                <span class="pub__logo"><img src="logos/reuters.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Reuters</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/Tjl8slcGYTmO6f0yHbivKJg">
+                <span class="pub__logo"><img src="logos/bloomberg.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Bloomberg</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TLZKrjVHNQX6EU84bXaUU4w">
+                <span class="pub__logo pub__logo--fill"><img src="logos/wall-street-journal.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">The Wall Street Journal</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TA-H5PvUbSDem4E9vQwZtOw">
+                <span class="pub__logo pub__logo--fill"><img src="logos/semafor.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Semafor</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TNPfsRVpATbW1Sj1yWFdFFg">
+                <span class="pub__logo"><img src="logos/central-jersey-news.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Central Jersey News</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="desk desk--cobalt" aria-labelledby="analysis">
+          <div class="desk__head">
+            <h2 class="desk__title" id="analysis">Analysis &amp; Ideas</h2>
+            <span class="desk__count" aria-hidden="true" data-count></span>
+            <span class="desk__numeral" aria-hidden="true">№&#8239;2</span>
+          </div>
+          <ul class="pubs" role="list">
+            <li>
+              <a class="pub" href="https://apple.news/ThfiauYLtQlOfqyiHkempkw">
+                <span class="pub__logo pub__logo--fill"><img src="logos/economist.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">The Economist</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/T_Ye2hwWaT_-u-DtJ17lVoQ">
+                <span class="pub__logo pub__logo--fill"><img src="logos/christian-science-monitor.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">The Christian Science Monitor</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TVgiaC0hzRVuradhgG5IrNQ">
+                <span class="pub__logo"><img src="logos/bloomberg-businessweek.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Bloomberg Businessweek</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TRDkR9QPbS0yoKyV5iQSW5g">
+                <span class="pub__logo"><img src="logos/fast-company.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Fast Company</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="desk desk--forest" aria-labelledby="science">
+          <div class="desk__head">
+            <h2 class="desk__title" id="science">Technology &amp; Science</h2>
+            <span class="desk__count" aria-hidden="true" data-count></span>
+            <span class="desk__numeral" aria-hidden="true">№&#8239;3</span>
+          </div>
+          <ul class="pubs" role="list">
+            <li>
+              <a class="pub" href="https://apple.news/TLhSckDOWQjqEVzLdN4FplQ">
+                <span class="pub__logo pub__logo--fill"><img src="logos/the-verge.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">The Verge</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TUKgA_OjuTe20v1ndDwQjxQ">
+                <span class="pub__logo"><img src="logos/ars-technica.svg" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Ars Technica</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TMDi_OFIRSe2BQoupq1S1Gw">
+                <span class="pub__logo pub__logo--fill"><img src="logos/daring-fireball.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Daring Fireball</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TvhDsCM02Sz2u5ut0wrZFwA">
+                <span class="pub__logo pub__logo--fill"><img src="logos/wired.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">WIRED</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TaQFrBREMREafJLmlnwG_RA">
+                <span class="pub__logo pub__logo--fill"><img src="logos/techcrunch.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">TechCrunch</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/T1kYkFSIVRBWBj0dJ29gJfw">
+                <span class="pub__logo"><img src="logos/mit-technology-review.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">MIT Technology Review</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/T1igTlZ8xTAiyMs8q1JtDbw">
+                <span class="pub__logo pub__logo--fill"><img src="logos/new-scientist.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">New Scientist</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/T3wa8HAqFQDWGfcXrqdNGog">
+                <span class="pub__logo"><img src="logos/404-media.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">404 Media</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="desk desk--marigold" aria-labelledby="sports">
+          <div class="desk__head">
+            <h2 class="desk__title" id="sports">Sports</h2>
+            <span class="desk__count" aria-hidden="true" data-count></span>
+            <span class="desk__numeral" aria-hidden="true">№&#8239;4</span>
+          </div>
+          <ul class="pubs" role="list">
+            <li>
+              <a class="pub" href="https://apple.news/TGZrXYjEmTdOtVrhVEViDCA">
+                <span class="pub__logo pub__logo--fill"><img src="logos/the-athletic.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">The Athletic</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="pub" href="https://apple.news/TxdXHyhmxQZySoSBhMMt0eg">
+                <span class="pub__logo"><img src="logos/sportico.png" alt="" width="40" height="40" /></span>
+                <span class="pub__name">Sportico</span>
+                <svg class="pub__arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+
+      <footer class="colophon">
+        <p>Set in Fraunces, Instrument Sans &amp; DM Mono &middot; Printed fresh with every visit</p>
+      </footer>
+    </main>
+  </body>
+</html>
